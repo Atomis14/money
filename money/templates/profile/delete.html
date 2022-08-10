@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="mb-0">Delete {{ type|capitalize }}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="mb-4">
+    {% if type == 'data' %}
+      Are you sure you want to delete all your transaction data?
+    {% elif type == 'profile' %}
+      Are you sure you want to delete your profile?
+    {% endif %}
+    <br>
+    <strong>This process is not reversible.</strong>
+  </div>
+  <div class="mb-4">
+    <form action="" method="POST">
+      <div class="mb-2">
+        <input type="checkbox" name="confirmation" id="confirmation" class="form-check-input">
+        <label for="confirmation" class="form-check-label">Confirm deletion of <strong>{{ type }}</strong></label>
+      </div>
+      <input type="submit" value="Delete {{ type|capitalize }}" class="btn btn-danger w-100">
+    </form>
+  </div>
+  <a href="{{ url_for('profile.profile') }}" class="btn btn-secondary w-100">Back to Profile</a>
+{% endblock %}

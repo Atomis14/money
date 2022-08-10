@@ -1,0 +1,7 @@
+# https://flask.palletsprojects.com/en/2.1.x/tutorial/install/
+# include everything in static and templates directory and schema.sql but exclude all byte and code files
+
+include money/schema.sql
+graft money/static
+graft money/templates
+global-exclude *.pyc

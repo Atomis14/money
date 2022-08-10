@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="mb-0">Profile</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="mb-4">
+    Username: <strong>{{ g.user['username'] }}</strong><br>
+    Registered: <strong>{{ g.user['createdate']|datetime }}</strong>
+  </div>
+  <div class="mb-5">
+    <h5>Change Password</h5>
+    <form action="" method="POST">
+      <input type="password" name="current_password" id="current_password" placeholder="Current Password" class="form-control mb-2">
+      <input type="password" name="new_password" id="new_password" placeholder="New Password" class="form-control mb-2">
+      <input type="password" name="new_password_2" id="new_password_2" placeholder="Repeat New Password" class="form-control">
+      <input type="submit" value="Change" class="w-100 btn btn-primary mt-2">
+    </form>
+  </div>
+  <div class="d-flex justify-content-between">
+    <a href="{{ url_for('auth.logout') }}" class="btn btn-secondary">Logout</a>
+    <a href="{{ url_for('profile.profile_delete', type='data') }}" class="btn btn-danger">Delete Data</a>
+    <a href="{{ url_for('profile.profile_delete', type='profile') }}" class="btn btn-danger">Delete Profile</a>
+  </div>
+{% endblock %}

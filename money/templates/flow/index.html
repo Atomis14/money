@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="mb-0">All Transactions</h1>
+{% endblock %}
+
+{% block content %}
+  {% if transactions %}
+    {% for transaction in transactions %}
+      <div class="row mb-2 bg-light p-2">
+        <div class="col-7">
+          <div>{{ transaction.name|capitalize }}</div>
+          <div class="text-black-50 small">{{ transaction.date|datetime('%d.%m.%Y | %H:%M') }}</div>
+        </div>
+        <div class="col-5 text-end fw-bold d-flex align-items-center justify-content-end">
+          {{ transaction.amount }} CHF
+          <a href="{{ url_for('flow.flow_delete', id=transaction.id) }}" class="ms-2">
+            <span class="material-symbols-outlined text-danger p-0 mt-1">delete</span>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="d-flex align-items-center">
+      No transactions yet ... <span class="material-symbols-outlined ms-2">money_off</span>
+    </div>
+  {% endif %}
+{% endblock %}

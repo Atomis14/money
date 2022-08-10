@@ -1,0 +1,23 @@
+<div style="height: 70px;"></div>
+<nav class="bg-dark pb-1 pt-2 position-fixed bottom-0 w-100 d-flex">
+  <a href="{{ url_for('index') }}" class="d-inline-flex text-decoration-none flex-column align-items-center w-25
+           {{ 'text-white' if request.blueprint == 'index' else 'text-white-50' }}">
+    <span class="material-symbols-outlined">home</span>
+    Home
+  </a>
+  <a href="{{ url_for('flow.flow') }}" class="d-inline-flex text-decoration-none flex-column align-items-center w-25
+           {{ 'text-white' if request.blueprint == 'flow' else 'text-white-50' }}">
+    <span class="material-symbols-outlined">attach_money</span>
+    Flow
+  </a>
+  <a href="{{ url_for('dashboard.dashboard') }}" class="d-inline-flex text-decoration-none flex-column align-items-center w-25
+           {{ 'text-white' if request.blueprint == 'dashboard' else 'text-white-50' }}">
+    <span class="material-symbols-outlined">dashboard</span>
+    Dashboard
+  </a>
+  <a href="{{ url_for('profile.profile') }}" class="d-inline-flex text-decoration-none flex-column align-items-center w-25
+           {{ 'text-white' if request.blueprint == 'profile' else 'text-white-50' }}">
+    <span class="material-symbols-outlined">account_circle</span>
+    Profile
+  </a>
+</nav>
